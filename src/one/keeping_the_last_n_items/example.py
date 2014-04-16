@@ -1,4 +1,10 @@
+from __future__ import print_function
 from collections import deque
+
+import sys
+
+#if sys.version < '3':
+#    print=print_function
 
 def search(lines, pattern, history=5):
     previous_lines = deque(maxlen=history)
@@ -12,6 +18,6 @@ if __name__ == '__main__':
     with open('somefile.txt') as f:
         for line, prevlines in search(f, 'python', 5):
             for pline in prevlines:
-                print(pline, end='')
+                print(pline)
             print(line, end='')
             print('-'*20)
