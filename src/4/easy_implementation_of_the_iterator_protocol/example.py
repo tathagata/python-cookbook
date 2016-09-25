@@ -17,9 +17,19 @@ class Node:
         return iter(self._children)
 
     def depth_first(self):
+#        import pdb;pdb.set_trace()
         yield self
         for c in self:
-            yield from c.depth_first()
+            for n in c.depth_first():
+                yield n
+
+    def breadth_first(self):
+        yield self
+        for c in self:
+            yield c
+        
+
+
 
 # Example
 if __name__ == '__main__':
