@@ -6,4 +6,4 @@ python:
 install:
   - pip install -r requirements.txt
 # command to run tests
-script: nosetests --with-coverage --cover-erase --cover-package=app --cover-html
+script: nosetests --with-coverage --cover-erase --cover-package=src --cover-html
