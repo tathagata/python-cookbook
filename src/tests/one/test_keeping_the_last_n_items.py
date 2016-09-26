@@ -2,7 +2,7 @@ import unittest
 from src.one.keeping_the_last_n_items import example
 import os
 from urllib.request import urlopen, Request
-from future.standard_library import install_aliases
+from __future__.standard_library import install_aliases
 install_aliases()
 
 def peek(iterable):
