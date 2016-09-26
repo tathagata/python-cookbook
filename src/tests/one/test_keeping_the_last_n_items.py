@@ -1,6 +1,9 @@
 import unittest
 from src.one.keeping_the_last_n_items import example
-import os, urllib
+import os
+from urllib.request import urlopen, Request
+from future.standard_library import install_aliases
+install_aliases()
 
 def peek(iterable):
     try:
@@ -42,7 +45,7 @@ class TestSearch(unittest.TestCase):
         search_in_file = example.search(open(self.filename),'python',5)
         self.assertEquals(5, list(search_in_file)[0][1].maxlen)
 
-        search_in_web = example.search(urllib.urlopen('http://pyvideo.org/category/50/pycon-us-2014').readlines(), 'pyvideo',5)
+        search_in_web = example.search(urlopen('http://pyvideo.org/category/50/pycon-us-2014').readlines(), 'pyvideo',5)
         self.assertEquals(5, list(search_in_web)[0][1].maxlen)
 
     def tearDown(self):
